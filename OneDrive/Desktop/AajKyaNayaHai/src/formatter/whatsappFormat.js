@@ -12,6 +12,7 @@ export function formatWhatsAppMessage(aiSummary, topic) {
   return `
 🗞️ *Aaj Kya Naya Hai?*
 🧠 Topic: *${topic}*
+🧑 Owner: ~ Ankit Vashishth
 
 ${aiSummary}
 
