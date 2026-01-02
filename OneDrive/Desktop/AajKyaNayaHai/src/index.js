@@ -1,15 +1,18 @@
-// src/index.js
 import dotenv from "dotenv";
 dotenv.config();
 
-console.log("🤖 AI News WhatsApp Bot Started");
-
-
 import { fetchNews } from "./news/fetchNews.js";
+import { summarizeNews } from "./ai/summarize.js";
+import { formatWhatsAppMessage } from "./formatter/whatsappFormat.js";
 
-async function testNews() {
-  const news = await fetchNews("AI startups");
-  console.log(news);
+async function testDay7() {
+  const topic = "AI & Tech";
+  const news = await fetchNews(topic);
+  const summary = await summarizeNews(news);
+  const message = formatWhatsAppMessage(summary, topic);
+
+  console.log("\n📲 WhatsApp Message Preview:\n");
+  console.log(message);
 }
 
-testNews();
+testDay7();
